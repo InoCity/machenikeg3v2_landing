@@ -50,10 +50,10 @@ const SPECS = [
     items: [
       { label: "Analógicos", value: "Hall Effect (magnético) — sem drift mecânico, sensibilidade ajustável no Keylinker" },
       { label: "Gatilhos (LT/RT)", value: "Hall Effect — \"Quad-Hall System\" (2 sticks + 2 gatilhos)" },
-      { label: "Modo dos gatilhos", value: "Analógico completo ou \"hair-trigger\" (curso curto) — alternável no Keylinker" },
+      { label: "Modo dos gatilhos", value: "Analógico completo ou \"hair-trigger\" (curso curto) — alternável no Keylinker ou usando atalho" },
       { label: "Botões de ação (A/B/X/Y)", value: "Switch tipo membrana" },
       { label: "Bumpers (LB/RB)", value: "Switch tátil" },
-      { label: "Botões traseiros programáveis", value: "M1 / M2 — até 32 ações programáveis, com gravação de macro (FN + M1/M2). Só 2 paddles (não 4 como alguns concorrentes)" },
+      { label: "Botões traseiros programáveis", value: "M1 / M2 — até 32 ações programáveis, suporta gravação de macro" },
       { label: "Função Turbo", sublista: [
         { icon: "bolt", texto: "Disponível em A / B / X / Y / LB / LT / RB / RT" },
         { icon: "tune", texto: "Modo manual e automático" },
@@ -82,7 +82,7 @@ const SPECS = [
         { icon: "apps", texto: "Pelo app Keylinker" },
         { icon: "back_hand", texto: "Ou pressionando o botão físico na parte de trás do controle" },
       ] },
-      { label: "Autonomia estimada", value: "~10 horas com 1000mAh (varia bastante com o nível de vibração e do RGB ligado) — segundo listagens de terceiros, não é número do manual oficial" },
+      { label: "Autonomia estimada", value: "~10 horas de uso contínuo com 1000mAh (varia bastante com o nível de vibração e do RGB ligado) — segundo listagens de terceiros, não é número do manual oficial" },
     ],
   },
   {
@@ -90,7 +90,7 @@ const SPECS = [
     icon: "apps",
     items: [
       { label: "App de configuração", value: "Keylinker — o controle aparece como \"G3V2_APP\" na tela inicial do app" },
-      { label: "Emparelhamento por app", value: "Não é necessário Bluetooth conectado ao celular pra configurar" },
+      { label: "Emparelhamento por app", value: "Necessário conectar diretamente pelo aplicativo, não funciona pelas configurações de bluetooth nativo do celular" },
       { label: "Atualização de firmware", value: "Via app Keylinker ou site oficial" },
       { label: "Site do fabricante", value: "https://global.machenike.com/" },
       { label: "HarmonyOS", value: "Versões 5.0+ não suportam o Keylinker — use a versão Android do app" },
@@ -119,10 +119,10 @@ const SPECS = [
     group: "Mercado",
     icon: "bolt",
     items: [
-      { label: "Preço no Brasil", value: "~R$ 183 (com imposto de importação já incluso) — visto no Mercado Livre e Shopee Brasil, jul/2025. Preço varia por promoção/frete" },
+      { label: "Preço no Brasil", value: "~R$ 100-200 (com imposto de importação já incluso) — Preços baseados na AliExpress, jul/2026. Preço varia por promoção/frete" },
       { label: "Onde comprar (BR)", sublista: [
         { icon: "open_in_new", texto: "Mercado Livre — frete grátis, parcelamento sem juros em alguns casos" },
-        { icon: "open_in_new", texto: "Shopee Brasil — estoque local" },
+        { icon: "open_in_new", texto: "AliExpress - Preços mais baratos, frete grátis porém... causa ansiedade... ˙𐃷˙" },
       ] },
       { label: "Preço nos EUA", value: "US$ 35,99 (preço-base na Amazon EUA) — cotação de referência, não é o preço à vista no Brasil" },
       { label: "Posicionamento", value: "Categoria \"mid-budget\" — recursos de controle premium (Hall Effect duplo, 1000Hz) num preço de entrada" },
