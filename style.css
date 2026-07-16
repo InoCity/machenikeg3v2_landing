@@ -869,6 +869,9 @@ fundo-organico {
   .nav-item.active { background: transparent; }
   .nav-item.active span:not(.micon) { color: var(--md-primary); font-weight: 600; }
   .nav-item .micon {
+    box-sizing: content-box;
+    width: 20px;
+    height: 20px;
     padding: 4px 16px;
     border-radius: 999px;
     transition: background 0.4s var(--m3-spring-soft), transform 0.45s var(--m3-spring);
