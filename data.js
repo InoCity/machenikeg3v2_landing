@@ -121,8 +121,8 @@ const SPECS = [
     items: [
       { label: "Preço no Brasil", value: "~R$ 100-200 (com imposto de importação já incluso) — Preços baseados na AliExpress, jul/2026. Preço varia por promoção/frete" },
       { label: "Onde comprar (BR)", sublista: [
-        { icon: "open_in_new", texto: "Mercado Livre — frete grátis, parcelamento sem juros em alguns casos" },
-        { icon: "open_in_new", texto: "AliExpress - Preços mais baratos, frete grátis porém... causa ansiedade... ˙𐃷˙" },
+        { icon: "open_in_new", texto: "Mercado Livre — Frete grátis, parcelamento sem juros em alguns casos" },
+        { icon: "open_in_new", texto: "AliExpress - Preços mais baratos, frete grátis porém... Causa ansiedade... ˙𐃷˙" },
       ] },
       { label: "Preço nos EUA", value: "US$ 35,99 (preço-base na Amazon EUA) — cotação de referência, não é o preço à vista no Brasil" },
       { label: "Posicionamento", value: "Categoria \"mid-budget\" — recursos de controle premium (Hall Effect duplo, 1000Hz) num preço de entrada" },
