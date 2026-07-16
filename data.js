@@ -41,6 +41,7 @@ const SPECS = [
       { label: "Receptor 2.4G", value: "Incluso — \"Dual-Core Receiver\", com porta USB de extensão integrada" },
       { label: "Compatibilidade", value: "PC, Nintendo Switch / Switch 2, iOS, Android, HarmonyOS, Steam e sistemas embarcados automotivos" },
       { label: "Incompatibilidades", value: "Não funciona nativamente em Xbox, PlayStation ou GeForce Now" },
+      { label: "🤫 Segredinho", value: "Funciona no console Xbox 360 desbloqueado (com o plugin homebrew UsbdSecPatch, que libera o uso de controles USB não-oficiais) — não é suporte oficial, é modding" },
     ],
   },
   {
