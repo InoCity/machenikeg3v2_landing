@@ -431,6 +431,63 @@ table.spec td:last-child { font-size: 13px; }
   font-style: italic;
 }
 
+/* ---------- segredinho revelável (toque/clique pra mostrar) ---------- */
+.segredo-reveal {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: color-mix(in srgb, var(--md-tertiary-container) 20%, transparent);
+  border: 1px dashed var(--md-tertiary);
+  border-radius: var(--shape-md);
+  padding: 10px 14px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 13px;
+  color: inherit;
+  transition: background 0.3s ease, border-color 0.3s ease, border-radius 0.4s var(--m3-standard);
+}
+.segredo-reveal:hover {
+  background: color-mix(in srgb, var(--md-tertiary-container) 35%, transparent);
+  border-color: var(--md-tertiary);
+}
+.segredo-reveal.is-revelado {
+  border-style: solid;
+  border-radius: var(--shape-sm);
+  cursor: default;
+}
+.segredo-reveal__teaser {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-style: italic;
+  color: var(--md-on-surface-variant);
+}
+.segredo-reveal__teaser .micon {
+  width: 15px;
+  height: 15px;
+  color: var(--md-tertiary);
+  flex-shrink: 0;
+  animation: segredo-pulso 2.2s ease-in-out infinite;
+}
+.segredo-reveal.is-revelado .segredo-reveal__teaser { display: none; }
+
+.segredo-reveal__real {
+  display: block;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.45s var(--m3-standard), opacity 0.35s var(--m3-standard);
+}
+.segredo-reveal.is-revelado .segredo-reveal__real {
+  max-height: 240px;
+  opacity: 1;
+}
+
+@keyframes segredo-pulso {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
+
 /* ---------- chips de compatibilidade (Material 3 Assist Chip) ---------- */
 .chip-row {
   display: flex;

@@ -70,6 +70,13 @@
                   </li>
                 `).join("")}
               </ul>${item.nota ? `<p class="mini-nota">${item.nota}</p>` : ""}`;
+            } else if (item.segredo) {
+              value = `<button class="segredo-reveal" type="button">
+                <span class="segredo-reveal__teaser">
+                  <span class="micon" data-icon="info"></span>${item.teaser}
+                </span>
+                <span class="segredo-reveal__real">${item.value}</span>
+              </button>`;
             } else {
               const isPending = item.value.includes("A CONFIRMAR");
               value = isPending ? `<span class="pending">${item.value}</span>` : item.value;
@@ -83,6 +90,10 @@
       </div>
     `).join("");
     hydrateIcons(document);
+
+    document.querySelectorAll(".segredo-reveal").forEach((btn) => {
+      btn.addEventListener("click", () => btn.classList.toggle("is-revelado"));
+    });
   </script>
 </body>
 </html>
