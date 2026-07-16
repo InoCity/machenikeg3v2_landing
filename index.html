@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="description" content="Painel de referência não-oficial do Machenike G3 V2: ficha técnica, atalhos de botões e guia de firmware.">
+<title>Machenike G3 V2 — Painel de Referência</title>
+<link rel="stylesheet" href="style.css">
+<script src="fundo-organico.js" defer></script>
+<script src="mdharmony-switch.js" defer></script>
+</head>
+<body>
+  <fundo-organico largura="520" velocidade="lenta" opacidade="0.16" style="top:-160px; left:-140px; opacity:0;"></fundo-organico>
+  <fundo-organico class="fo-2" largura="420" velocidade="media" opacidade="0.14" style="bottom:-140px; right:-120px; opacity:0;"></fundo-organico>
+  <div id="motion-toggle"></div>
+
+  <div class="shell">
+    <aside class="sidebar" id="sidebar"></aside>
+    <main>
+      <div class="breadcrumb">Painel <span class="micon" data-icon="chevron_right" style="width:14px;height:14px;"></span> <span class="accent">Início</span></div>
+
+      <div class="hero">
+        <div class="hero-icon">
+          <span class="micon" data-icon="sports_esports"></span>
+        </div>
+        <div>
+          <h1 class="page-title" id="titulo" style="margin-bottom:6px;"></h1>
+          <div class="hero__status"><span class="micon" data-icon="bolt"></span> Referência local · sem servidor</div>
+        </div>
+      </div>
+
+      <p class="page-sub" id="subtitulo"></p>
+
+      <div class="grid3">
+        <a class="nav-card" href="especificacoes.html">
+          <div class="icon-chip"><span class="micon" data-icon="description"></span></div>
+          <h3>Especificações</h3>
+          <p>Conectividade, sensores, bateria, app e dimensões físicas do controle.</p>
+        </a>
+        <a class="nav-card" href="atalhos.html">
+          <div class="icon-chip"><span class="micon" data-icon="sports_esports"></span></div>
+          <h3>Combinações de botões</h3>
+          <p>Ligar/desligar, pareamento, turbo, botões traseiros e vibração.</p>
+        </a>
+        <a class="nav-card" href="firmware.html">
+          <div class="icon-chip"><span class="micon" data-icon="system_update"></span></div>
+          <h3>Firmware & Keylinker</h3>
+          <p>Como instalar o app, atualizar firmware e links oficiais.</p>
+        </a>
+      </div>
+
+      <div class="callout" style="margin-top:28px;">
+        <span class="micon" data-icon="info"></span>
+        <div>
+          <strong>Nota:</strong> este site foi montado com os dados públicos disponíveis até o momento. Campos marcados como
+          <span class="pending">A CONFIRMAR</span> no arquivo <code>data.js</code> devem ser preenchidos com base no seu manual
+          impresso, na etiqueta do controle ou no app Keylinker.
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="icons.js"></script>
+  <script src="ripple.js"></script>
+  <script src="data.js"></script>
+  <script src="nav.js"></script>
+  <script>
+    renderSidebar("index.html");
+    renderMotionToggle();
+    hydrateIcons(document);
+    document.getElementById("titulo").textContent = CONTROLLER.nome;
+    document.getElementById("subtitulo").textContent = CONTROLLER.tagline + " — " + CONTROLLER.linha;
+  </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>Página não encontrada — Machenike G3 V2</title>
+<link rel="stylesheet" href="style.css">
+<script src="fundo-organico.js" defer></script>
+</head>
+<body>
+  <fundo-organico largura="480" velocidade="lenta" opacidade="0.15" style="top:-150px; left:-130px; opacity:0;"></fundo-organico>
+  <div style="min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px;">
+    <div class="panel" style="max-width:440px; text-align:center;">
+      <div class="icon-chip" style="margin:0 auto 18px;">
+        <span class="micon" data-icon="info"></span>
+      </div>
+      <h1 class="page-title" style="font-size:26px;">Página não encontrada</h1>
+      <p class="page-sub" style="margin:0 auto 20px; max-width:38ch;">Esse atalho não existe (ainda). Volta pro painel principal.</p>
+      <a href="index.html" class="btn">
+        <span class="micon" data-icon="home"></span>
+        Voltar ao início
+      </a>
+    </div>
+  </div>
+  <script src="icons.js"></script>
+  <script>
+    hydrateIcons(document);
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      document.querySelectorAll("fundo-organico").forEach((el) => { el.style.opacity = ""; });
+    }));
+  </script>
+</body>
+</html>
