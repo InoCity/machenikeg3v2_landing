@@ -72,6 +72,7 @@ function initPageTransitions() {
 
   document.addEventListener("click", (e) => {
     if (e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+    if (document.documentElement.classList.contains("pagina-saindo")) return;
     const link = e.target.closest("a[href]");
     if (!link || link.target === "_blank") return;
 

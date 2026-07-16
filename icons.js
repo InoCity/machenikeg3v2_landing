@@ -74,9 +74,15 @@ function hydrateIcons(root) {
     const existingClass = el.getAttribute("class") || "";
     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     svg.setAttribute("viewBox", "0 0 24 24");
+    svg.setAttribute("width", "24");
+    svg.setAttribute("height", "24");
     svg.setAttribute("class", existingClass);
     svg.setAttribute("aria-hidden", "true");
     svg.innerHTML = paths;
+    // preserva qualquer estilo inline que o span original já tivesse
+    // (ex: largura/altura customizada passada via style="")
+    const estiloOriginal = el.getAttribute("style");
+    if (estiloOriginal) svg.setAttribute("style", estiloOriginal);
     el.replaceWith(svg);
   });
 }
