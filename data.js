@@ -174,6 +174,13 @@ const SHORTCUTS = [
     ],
   },
   {
+    categoria: "Modo do gatilho (Hair Trigger)",
+    icon: "tune",
+    lista: [
+      { combo: "FN + LT (ou RT)", acao: "Alterna aquele gatilho entre analógico completo e hair-trigger (curso curto) — não precisa do Keylinker, dá pra trocar direto no controle" },
+    ],
+  },
+  {
     categoria: "Config. dos paddles (M1/M2)",
     icon: "back_hand",
     subsecoes: [
