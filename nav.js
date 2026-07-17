@@ -3,6 +3,7 @@ const NAV_ITEMS = [
   { idx: "01", label: "Ficha Técnica", href: "especificacoes.html", icon: "description" },
   { idx: "02", label: "Atalhos", href: "atalhos.html", icon: "sports_esports" },
   { idx: "03", label: "Firmware & Software", href: "firmware.html", icon: "system_update" },
+  { idx: "04", label: "Sobre", href: "sobre.html", icon: "info" },
 ];
 
 function renderSidebar(activeHref) {
@@ -67,7 +68,7 @@ function renderMotionToggle() {
    fade-out curto no <main>, e só então navega de verdade — funciona
    em qualquer navegador, sem depender de suporte experimental. */
 function initPageTransitions() {
-  const paginasLocais = ["index.html", "especificacoes.html", "atalhos.html", "firmware.html"];
+  const paginasLocais = ["index.html", "especificacoes.html", "atalhos.html", "firmware.html", "sobre.html"];
   const paginaAtual = location.pathname.split("/").pop() || "index.html";
 
   document.addEventListener("click", (e) => {
