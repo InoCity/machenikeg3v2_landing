@@ -1,18 +1,18 @@
 const NAV_ITEMS = [
-  { idx: "00", label: "Início", href: "index.html", icon: "home" },
-  { idx: "01", label: "Ficha Técnica", href: "especificacoes.html", icon: "description" },
-  { idx: "02", label: "Atalhos", href: "atalhos.html", icon: "sports_esports" },
-  { idx: "03", label: "Firmware & Software", href: "firmware.html", icon: "system_update" },
-  { idx: "04", label: "Sobre", href: "sobre.html", icon: "info" },
+  { id: "inicio", label: "Início", icon: "home", titulo: "Machenike G3 V2 — Painel de Referência" },
+  { id: "especificacoes", label: "Ficha Técnica", icon: "description", titulo: "Ficha Técnica — Machenike G3 V2" },
+  { id: "atalhos", label: "Atalhos", icon: "sports_esports", titulo: "Atalhos — Machenike G3 V2" },
+  { id: "firmware", label: "Firmware & Software", icon: "system_update", titulo: "Firmware & Software — Machenike G3 V2" },
+  { id: "sobre", label: "Sobre", icon: "info", titulo: "Sobre — Machenike G3 V2" },
 ];
 
-function renderSidebar(activeHref) {
+function renderSidebar(activeId) {
   const el = document.getElementById("sidebar");
   if (!el) return;
 
   const items = NAV_ITEMS.map((item) => {
-    const isActive = item.href === activeHref;
-    return `<a class="nav-item${isActive ? " active" : ""}" href="${item.href}">
+    const isActive = item.id === activeId;
+    return `<a class="nav-item${isActive ? " active" : ""}" href="#${item.id}" data-page="${item.id}">
       <span class="micon" data-icon="${item.icon}"></span><span>${item.label}</span>
     </a>`;
   }).join("");
@@ -32,6 +32,15 @@ function renderSidebar(activeHref) {
     </div>
   `;
   hydrateIcons(el);
+}
+
+/* Só troca a classe "active" dos itens já renderizados — usado a
+   cada troca de "página" (seção), sem precisar reconstruir a
+   sidebar inteira toda vez. */
+function atualizarNavAtiva(activeId) {
+  document.querySelectorAll(".nav-item[data-page]").forEach((a) => {
+    a.classList.toggle("active", a.dataset.page === activeId);
+  });
 }
 
 /* Toggle fixo "Animações" — liga/desliga todas as transições e
@@ -60,32 +69,6 @@ function renderMotionToggle() {
     try { localStorage.setItem("g3v2-motion-off", animacoesLigadas ? "0" : "1"); } catch (e) {}
   });
 }
-
-/* Animação de SAÍDA entre páginas. A View Transitions API (no CSS)
-   já cuida da entrada em navegadores compatíveis, mas a troca de
-   documento em si é instantânea — o conteúdo antigo "sumia" sem
-   nenhuma transição. Aqui a gente intercepta o clique, toca um
-   fade-out curto no <main>, e só então navega de verdade — funciona
-   em qualquer navegador, sem depender de suporte experimental. */
-function initPageTransitions() {
-  const paginasLocais = ["index.html", "especificacoes.html", "atalhos.html", "firmware.html", "sobre.html"];
-  const paginaAtual = location.pathname.split("/").pop() || "index.html";
-
-  document.addEventListener("click", (e) => {
-    if (e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
-    if (document.documentElement.classList.contains("pagina-saindo")) return;
-    const link = e.target.closest("a[href]");
-    if (!link || link.target === "_blank") return;
-
-    const href = link.getAttribute("href");
-    if (!paginasLocais.includes(href) || href === paginaAtual) return;
-
-    e.preventDefault();
-    document.documentElement.classList.add("pagina-saindo");
-    window.setTimeout(() => { window.location.href = href; }, 220);
-  });
-}
-initPageTransitions();
 
 /* Entrada suave dos hexágonos de fundo (fundo-organico). Eles nascem
    com opacity:0 inline no HTML — aqui a gente solta essa trava um

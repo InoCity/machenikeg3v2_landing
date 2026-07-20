@@ -19,46 +19,222 @@
   <div class="shell">
     <aside class="sidebar" id="sidebar"></aside>
     <main>
-      <div class="breadcrumb">Painel <span class="micon" data-icon="chevron_right" style="width:14px;height:14px;"></span> <span class="accent">Início</span></div>
+      <div class="breadcrumb">Painel <span class="micon" data-icon="chevron_right" style="width:14px;height:14px;"></span> <span class="accent" id="breadcrumb-atual">Início</span></div>
 
-      <div class="hero">
-        <div class="hero-icon">
-          <span class="micon" data-icon="sports_esports"></span>
+      <!-- ===== INÍCIO ===== -->
+      <section class="page-section" data-page="inicio">
+        <div class="hero">
+          <div class="hero-icon">
+            <span class="micon" data-icon="sports_esports"></span>
+          </div>
+          <div>
+            <h1 class="page-title" id="titulo" style="margin-bottom:6px;"></h1>
+            <div class="hero__status"><span class="micon" data-icon="bolt"></span> Referência local · sem servidor</div>
+          </div>
         </div>
-        <div>
-          <h1 class="page-title" id="titulo" style="margin-bottom:6px;"></h1>
-          <div class="hero__status"><span class="micon" data-icon="bolt"></span> Referência local · sem servidor</div>
+
+        <p class="page-sub" id="subtitulo"></p>
+
+        <div class="grid3">
+          <a class="nav-card" href="#especificacoes">
+            <div class="icon-chip"><span class="micon" data-icon="description"></span></div>
+            <h3>Especificações</h3>
+            <p>Conectividade, sensores, bateria, app e dimensões físicas do controle.</p>
+          </a>
+          <a class="nav-card" href="#atalhos">
+            <div class="icon-chip"><span class="micon" data-icon="sports_esports"></span></div>
+            <h3>Combinações de botões</h3>
+            <p>Ligar/desligar, pareamento, turbo, botões traseiros e vibração.</p>
+          </a>
+          <a class="nav-card" href="#firmware">
+            <div class="icon-chip"><span class="micon" data-icon="system_update"></span></div>
+            <h3>Firmware & Keylinker</h3>
+            <p>Como instalar o app, atualizar firmware e links oficiais.</p>
+          </a>
         </div>
-      </div>
 
-      <p class="page-sub" id="subtitulo"></p>
-
-      <div class="grid3">
-        <a class="nav-card" href="especificacoes.html">
-          <div class="icon-chip"><span class="micon" data-icon="description"></span></div>
-          <h3>Especificações</h3>
-          <p>Conectividade, sensores, bateria, app e dimensões físicas do controle.</p>
-        </a>
-        <a class="nav-card" href="atalhos.html">
-          <div class="icon-chip"><span class="micon" data-icon="sports_esports"></span></div>
-          <h3>Combinações de botões</h3>
-          <p>Ligar/desligar, pareamento, turbo, botões traseiros e vibração.</p>
-        </a>
-        <a class="nav-card" href="firmware.html">
-          <div class="icon-chip"><span class="micon" data-icon="system_update"></span></div>
-          <h3>Firmware & Keylinker</h3>
-          <p>Como instalar o app, atualizar firmware e links oficiais.</p>
-        </a>
-      </div>
-
-      <div class="callout" style="margin-top:28px;">
-        <span class="micon" data-icon="info"></span>
-        <div>
-          <strong>Nota:</strong> este site foi montado com os dados públicos disponíveis até o momento. Campos marcados como
-          <span class="pending">A CONFIRMAR</span> no arquivo <code>data.js</code> devem ser preenchidos com base no seu manual
-          impresso, na etiqueta do controle ou no app Keylinker.
+        <div class="callout" style="margin-top:28px;">
+          <span class="micon" data-icon="info"></span>
+          <div>
+            <strong>Nota:</strong> este site foi montado com os dados públicos disponíveis até o momento. Campos marcados como
+            <span class="pending">A CONFIRMAR</span> no arquivo <code>data.js</code> devem ser preenchidos com base no seu manual
+            impresso, na etiqueta do controle ou no app Keylinker.
+          </div>
         </div>
-      </div>
+      </section>
+
+      <!-- ===== FICHA TÉCNICA ===== -->
+      <section class="page-section" data-page="especificacoes" hidden>
+        <h1 class="page-title">Ficha Técnica</h1>
+        <p class="page-sub">Especificações organizadas por bloco. Valores marcados como <span class="pending">a confirmar</span> ainda não foram encontrados em fonte oficial — edite em <code>data.js</code>.</p>
+
+        <div class="chip-row" id="chips"></div>
+
+        <div id="specs"></div>
+      </section>
+
+      <!-- ===== ATALHOS ===== -->
+      <section class="page-section" data-page="atalhos" hidden>
+        <h1 class="page-title">Atalhos & Combinações</h1>
+        <p class="page-sub">Foto real do seu G3 V2 com os pontos de referência marcados. Passe o mouse (ou toque) em cada marcador pra destacar a descrição — ou o contrário, passe na lista pra destacar o ponto na foto.</p>
+
+        <div class="panel">
+          <div class="panel__head">
+            <div class="head-left">
+              <div class="icon-chip"><span class="micon" data-icon="gamepad"></span></div>
+              <h2>Layout de referência</h2>
+            </div>
+            <span class="tag">Foto enviada por InoCity</span>
+          </div>
+          <div class="diagram-wrap">
+            <div>
+              <div class="photo-diagram">
+                <img src="controle-foto.png" alt="Foto do controle Machenike G3 V2 com marcadores de referência">
+                <button class="marker" data-letter="A" aria-label="Analógico esquerdo" style="left:24.7%; top:28.5%; width:46px; height:46px; border-radius:50%;"></button>
+                <button class="marker" data-letter="B" aria-label="D-Pad direcional" style="left:36.9%; top:51.6%; width:65px; height:65px; border-radius:50%;"></button>
+                <button class="marker" data-letter="C" aria-label="Analógico direito" style="left:62.9%; top:49.8%; width:46px; height:46px; border-radius:50%;"></button>
+                <button class="marker" data-letter="D" aria-label="Botões de ação" style="left:75.6%; top:28.5%; width:80px; height:80px; border-radius:50%;"></button>
+                <button class="marker" data-letter="E" aria-label="LB" style="left:26.9%; top:2.2%; width:52px; height:22px; border-radius:999px;"></button>
+                <button class="marker" data-letter="F" aria-label="RB" style="left:72.4%; top:2.2%; width:52px; height:22px; border-radius:999px;"></button>
+                <button class="marker" data-letter="G" aria-label="HOME" style="left:50.1%; top:14.9%; width:30px; height:30px; border-radius:50%;"></button>
+                <button class="marker" data-letter="H" aria-label="Captura / Compartilhar" style="left:42.3%; top:25.5%; width:20px; height:20px; border-radius:50%;"></button>
+                <button class="marker" data-letter="I" aria-label="Menu" style="left:57.4%; top:25.3%; width:20px; height:20px; border-radius:50%;"></button>
+                <button class="marker" data-letter="J" aria-label="Turbo" style="left:50.0%; top:30.7%; width:24px; height:16px; border-radius:999px;"></button>
+                <button class="marker" data-letter="K" aria-label="FN" style="left:50.0%; top:38.7%; width:24px; height:16px; border-radius:999px;"></button>
+              </div>
+              <p class="photo-diagram__hint">Passe o mouse (ou toque) sobre os botões da foto</p>
+            </div>
+            <ul class="legend" id="legend">
+              <li data-letter="A"><span class="letter">A</span> Analógico esquerdo (LS / L3 ao pressionar) — posição alta</li>
+              <li data-letter="B"><span class="letter">B</span> D-Pad direcional — posição baixa</li>
+              <li data-letter="C"><span class="letter">C</span> Analógico direito (RS / R3 ao pressionar) — posição baixa</li>
+              <li data-letter="D"><span class="letter">D</span> Botões de ação — ABXY</li>
+              <li data-letter="E"><span class="letter">E</span> LB (bumper esquerdo)</li>
+              <li data-letter="F"><span class="letter">F</span> RB (bumper direito)</li>
+              <li data-letter="G"><span class="letter">G</span> HOME — o logo iluminado é o botão (liga/desliga, reconecta)</li>
+              <li data-letter="H"><span class="letter">H</span> Captura / Compartilhar</li>
+              <li data-letter="I"><span class="letter">I</span> Menu (☰)</li>
+              <li data-letter="J"><span class="letter">J</span> T — Turbo</li>
+              <li data-letter="K"><span class="letter">K</span> FN — camada de função (ativa atalhos secundários)</li>
+            </ul>
+          </div>
+
+          <div class="callout" style="margin-top:20px; margin-bottom:0;">
+            <span class="micon" data-icon="info"></span>
+            <div>
+              <strong>Aviso da produção:</strong> agora, se você quiser ver o RT/LT e os paddles traseiros (M1/M2)... é melhor comprar o controle mesmo. Essa foto não tem ângulo de raio-X. ◉‿◉
+            </div>
+          </div>
+        </div>
+
+        <div id="shortcuts"></div>
+      </section>
+
+      <!-- ===== FIRMWARE ===== -->
+      <section class="page-section" data-page="firmware" hidden>
+        <h1 class="page-title">Firmware & Software</h1>
+        <p class="page-sub" id="appDesc"></p>
+
+        <div class="panel">
+          <div class="panel__head">
+            <div class="head-left">
+              <div class="icon-chip"><span class="micon spin-continuous" data-icon="sync"></span></div>
+              <h2>Como configurar / atualizar</h2>
+            </div>
+          </div>
+          <ol class="steps" id="steps"></ol>
+        </div>
+
+        <div class="panel">
+          <div class="panel__head">
+            <div class="head-left">
+              <div class="icon-chip"><span class="micon" data-icon="info"></span></div>
+              <h2>Observações</h2>
+            </div>
+          </div>
+          <ul class="note-list" id="notas"></ul>
+        </div>
+
+        <div class="panel">
+          <div class="panel__head">
+            <div class="head-left">
+              <div class="icon-chip"><span class="micon" data-icon="link"></span></div>
+              <h2>Links úteis</h2>
+            </div>
+          </div>
+          <ul class="link-list" id="links"></ul>
+        </div>
+      </section>
+
+      <!-- ===== SOBRE ===== -->
+      <section class="page-section" data-page="sobre" hidden>
+        <h1 class="page-title">Sobre este projeto</h1>
+        <p class="page-sub">Um painel de referência não-oficial pro Machenike G3 V2, feito por fã pra fã. Nada aqui tem vínculo comercial com a Machenike — é só carinho por um controle bom e vontade de organizar a informação num lugar só.</p>
+
+        <div class="panel">
+          <div class="panel__head">
+            <div class="head-left">
+              <img class="avatar-credito" src="https://github.com/InoCity.png" alt="Foto de perfil de InoCity no GitHub" loading="lazy">
+              <h2>InoCity</h2>
+            </div>
+            <span class="tag">Criador do projeto</span>
+          </div>
+          <p style="margin:0; font-size:13.5px; line-height:1.65; color:var(--md-on-surface-variant);">
+            Idealizou o painel, testou cada atalho no próprio controle, mandou as fotos e as correções de posição dos botões, e garantiu que as informações batessem com a realidade — não só com o manual.
+          </p>
+        </div>
+
+        <div class="panel">
+          <div class="panel__head">
+            <div class="head-left">
+              <img class="avatar-credito" src="https://github.com/evyly.png" alt="Foto de perfil de Evy (evyly) no GitHub" loading="lazy">
+              <h2>Evy (evyly)</h2>
+            </div>
+            <span class="tag">Componentes Material 3</span>
+          </div>
+          <p style="margin:0 0 12px; font-size:13.5px; line-height:1.65; color:var(--md-on-surface-variant);">
+            Autora do repositório <strong>md3-componentes</strong>, de onde vieram os Web Components usados no tema: o fundo animado orgânico e o switch de "Animações" que aparece fixo no canto da tela. Componentes genuínos, feitos à mão, que deram uma outra cara pro projeto.
+          </p>
+          <ul class="link-list">
+            <li><a href="https://github.com/evyly/md3-componentes" target="_blank" rel="noopener"><span class="micon" data-icon="open_in_new"></span>github.com/evyly/md3-componentes</a></li>
+          </ul>
+        </div>
+
+        <div class="panel">
+          <div class="panel__head">
+            <div class="head-left">
+              <div class="icon-chip icon-chip--avatar">M</div>
+              <h2>Machenike</h2>
+            </div>
+            <span class="tag">Fabricante</span>
+          </div>
+          <p style="margin:0 0 12px; font-size:13.5px; line-height:1.65; color:var(--md-on-surface-variant);">
+            Pelo controle em si, pelo manual oficial e pela documentação técnica que serviu de base pra maior parte da ficha técnica deste site. Este projeto não é afiliado, endossado ou revisado pela empresa.
+          </p>
+          <ul class="link-list">
+            <li><a href="https://global.machenike.com/" target="_blank" rel="noopener"><span class="micon" data-icon="open_in_new"></span>global.machenike.com</a></li>
+          </ul>
+        </div>
+
+        <div class="panel">
+          <div class="panel__head">
+            <div class="head-left">
+              <div class="icon-chip icon-chip--avatar"><span class="micon" data-icon="chat_bubble"></span></div>
+              <h2>Comunidade</h2>
+            </div>
+          </div>
+          <p style="margin:0; font-size:13.5px; line-height:1.65; color:var(--md-on-surface-variant);">
+            A quem testa, resenha, mede polling rate de madrugada e posta listagem em fórum e marketplace — as fontes secundárias citadas ao longo da ficha técnica (reviews independentes, anúncios, discussões) ajudaram a preencher o que o manual oficial deixou de fora.
+          </p>
+        </div>
+
+        <div class="callout" style="margin-top:20px;">
+          <span class="micon" data-icon="info"></span>
+          <div>
+            <strong>De boa fé:</strong> as informações aqui foram reunidas com cuidado, mas podem ter erro ou ficar desatualizadas. Se achar algo errado, o arquivo <code>data.js</code> é onde tudo mora — é só editar.
+          </div>
+        </div>
+      </section>
     </main>
   </div>
 
@@ -66,12 +242,16 @@
   <script src="ripple.js"></script>
   <script src="data.js"></script>
   <script src="nav.js"></script>
+  <script src="paginas.js"></script>
   <script>
-    renderSidebar("index.html");
+    renderSidebar("inicio");
     renderMotionToggle();
+    renderInicio();
+    renderEspecificacoes();
+    renderAtalhos();
+    renderFirmware();
     hydrateIcons(document);
-    document.getElementById("titulo").textContent = CONTROLLER.nome;
-    document.getElementById("subtitulo").textContent = CONTROLLER.tagline + " — " + CONTROLLER.linha;
+    initRoteador();
   </script>
 </body>
 </html>

@@ -2,98 +2,12 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="dark">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<meta name="description" content="Painel de referência não-oficial do Machenike G3 V2: ficha técnica, atalhos de botões e guia de firmware.">
-<title>Ficha Técnica — Machenike G3 V2</title>
-<link rel="stylesheet" href="style.css">
-<script src="fundo-organico.js" defer></script>
-<script src="mdharmony-switch.js" defer></script>
+<meta http-equiv="refresh" content="0; url=index.html#especificacoes">
+<link rel="canonical" href="index.html#especificacoes">
+<title>Redirecionando…</title>
 </head>
 <body>
-  <fundo-organico class="fo-3" largura="480" velocidade="lenta" opacidade="0.13" style="top:-150px; right:-130px; opacity:0;"></fundo-organico>
-  <div id="motion-toggle"></div>
-
-  <div class="shell">
-    <aside class="sidebar" id="sidebar"></aside>
-    <main>
-      <div class="breadcrumb">Painel <span class="micon" data-icon="chevron_right" style="width:14px;height:14px;"></span> <span class="accent">Ficha Técnica</span></div>
-      <h1 class="page-title">Ficha Técnica</h1>
-      <p class="page-sub">Especificações organizadas por bloco. Valores marcados como <span class="pending">a confirmar</span> ainda não foram encontrados em fonte oficial — edite em <code>data.js</code>.</p>
-
-      <div class="chip-row" id="chips"></div>
-
-      <div id="specs"></div>
-    </main>
-  </div>
-
-  <script src="icons.js"></script>
-  <script src="ripple.js"></script>
-  <script src="data.js"></script>
-  <script src="nav.js"></script>
-  <script>
-    renderSidebar("especificacoes.html");
-    renderMotionToggle();
-
-    const chips = document.getElementById("chips");
-    chips.innerHTML = PLATFORMS.map((p, i) => `
-      <span class="chip" style="animation-delay:${0.05 + i * 0.06}s">
-        <span class="micon" data-icon="${p.icon}"></span>${p.nome}
-      </span>
-    `).join("");
-
-    const container = document.getElementById("specs");
-    container.innerHTML = SPECS.map((block) => `
-      <div class="panel">
-        <div class="panel__head">
-          <div class="head-left">
-            <div class="icon-chip"><span class="micon" data-icon="${block.icon}"></span></div>
-            <h2>${block.group}</h2>
-          </div>
-        </div>
-        <table class="spec">
-          ${block.items.map((item) => {
-            let value;
-            if (item.sublista) {
-              value = `<ul class="mini-lista">
-                ${item.sublista.map((s) => `
-                  <li><span class="micon" data-icon="${s.icon}"></span>${s.texto}</li>
-                `).join("")}
-              </ul>`;
-            } else if (item.cores) {
-              value = `<ul class="lista-cores">
-                ${item.cores.map((c) => `
-                  <li>
-                    <span class="amostra-cor${c.transparente ? " transparente" : ""}" style="background:${c.hex};"></span>
-                    ${c.nome}
-                  </li>
-                `).join("")}
-              </ul>${item.nota ? `<p class="mini-nota">${item.nota}</p>` : ""}`;
-            } else if (item.segredo) {
-              value = `<button class="segredo-reveal" type="button">
-                <span class="segredo-reveal__teaser">
-                  <span class="micon" data-icon="info"></span>${item.teaser}
-                </span>
-                <span class="segredo-reveal__real">${item.value}</span>
-              </button>`;
-            } else {
-              const isPending = item.value.includes("A CONFIRMAR");
-              value = isPending ? `<span class="pending">${item.value}</span>` : item.value;
-            }
-            return `<tr>
-              <td>${item.label}</td>
-              <td>${value}</td>
-            </tr>`;
-          }).join("")}
-        </table>
-      </div>
-    `).join("");
-    hydrateIcons(document);
-
-    document.querySelectorAll(".segredo-reveal").forEach((btn) => {
-      btn.addEventListener("click", () => btn.classList.toggle("is-revelado"));
-    });
-  </script>
+  <p>Essa página se mudou — <a href="index.html#especificacoes">clique aqui</a> se não for redirecionado automaticamente.</p>
+  <script>location.replace("index.html#especificacoes");</script>
 </body>
 </html>

@@ -59,6 +59,8 @@ const ICONS = {
   cable: '<path d="M9 2v5M15 2v5M7 7h10v4a5 5 0 0 1-5 5 5 5 0 0 1-5-5V7Z"/><path d="M12 16v6"/>',
 
   check_circle: '<circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9"/>',
+
+  chat_bubble: '<path d="M4 5h16v11H9l-4 4v-4H4Z"/><path d="M8 9.5h8M8 12.5h5"/>',
 };
 
 /* Converte todo <span data-icon="nome" class="..."> encontrado em

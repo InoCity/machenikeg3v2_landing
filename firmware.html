@@ -2,83 +2,12 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="dark">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<meta name="description" content="Painel de referência não-oficial do Machenike G3 V2: ficha técnica, atalhos de botões e guia de firmware.">
-<title>Firmware & Software — Machenike G3 V2</title>
-<link rel="stylesheet" href="style.css">
-<script src="fundo-organico.js" defer></script>
-<script src="mdharmony-switch.js" defer></script>
-<style>
-  .spin-continuous { animation: rotate-slow 3s linear infinite; }
-  @keyframes rotate-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-</style>
+<meta http-equiv="refresh" content="0; url=index.html#firmware">
+<link rel="canonical" href="index.html#firmware">
+<title>Redirecionando…</title>
 </head>
 <body>
-  <fundo-organico class="fo-2" largura="500" velocidade="lenta" opacidade="0.14" style="top:-160px; right:-140px; opacity:0;"></fundo-organico>
-  <div id="motion-toggle"></div>
-
-  <div class="shell">
-    <aside class="sidebar" id="sidebar"></aside>
-    <main>
-      <div class="breadcrumb">Painel <span class="micon" data-icon="chevron_right" style="width:14px;height:14px;"></span> <span class="accent">Firmware & Software</span></div>
-      <h1 class="page-title">Firmware & Software</h1>
-      <p class="page-sub" id="appDesc"></p>
-
-      <div class="panel">
-        <div class="panel__head">
-          <div class="head-left">
-            <div class="icon-chip"><span class="micon spin-continuous" data-icon="sync"></span></div>
-            <h2>Como configurar / atualizar</h2>
-          </div>
-        </div>
-        <ol class="steps" id="steps"></ol>
-      </div>
-
-      <div class="panel">
-        <div class="panel__head">
-          <div class="head-left">
-            <div class="icon-chip"><span class="micon" data-icon="info"></span></div>
-            <h2>Observações</h2>
-          </div>
-        </div>
-        <ul class="note-list" id="notas"></ul>
-      </div>
-
-      <div class="panel">
-        <div class="panel__head">
-          <div class="head-left">
-            <div class="icon-chip"><span class="micon" data-icon="link"></span></div>
-            <h2>Links úteis</h2>
-          </div>
-        </div>
-        <ul class="link-list" id="links"></ul>
-      </div>
-    </main>
-  </div>
-
-  <script src="icons.js"></script>
-  <script src="ripple.js"></script>
-  <script src="data.js"></script>
-  <script src="nav.js"></script>
-  <script>
-    renderSidebar("firmware.html");
-    renderMotionToggle();
-
-    document.getElementById("appDesc").textContent =
-      `App: ${FIRMWARE.appNome}. ${FIRMWARE.appDescricao}`;
-
-    document.getElementById("steps").innerHTML =
-      FIRMWARE.passoAPasso.map((s) => `<li>${s}</li>`).join("");
-
-    document.getElementById("notas").innerHTML =
-      FIRMWARE.observacoes.map((n) => `<li>${n}</li>`).join("");
-
-    document.getElementById("links").innerHTML =
-      FIRMWARE.linksUteis.map((l) => `<li><a href="${l.url}" target="_blank" rel="noopener"><span class="micon" data-icon="open_in_new"></span>${l.titulo}</a></li>`).join("");
-
-    hydrateIcons(document);
-  </script>
+  <p>Essa página se mudou — <a href="index.html#firmware">clique aqui</a> se não for redirecionado automaticamente.</p>
+  <script>location.replace("index.html#firmware");</script>
 </body>
 </html>
