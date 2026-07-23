@@ -153,41 +153,91 @@ function renderFirmware() {
    animação — funciona igual, só sem a transição.
    ============================================================ */
 const PAGE_IDS = NAV_ITEMS.map((p) => p.id);
+let paginaAtualId = "inicio";
+let transicaoEmAndamento = false;
 
 function paginaValida(id) {
   return PAGE_IDS.includes(id) ? id : "inicio";
 }
 
-function trocarSecao(pageId) {
+function atualizarCabecalho(pageId) {
+  const item = NAV_ITEMS.find((p) => p.id === pageId);
+  if (!item) return;
+  document.title = item.titulo;
+  const bcAtual = document.getElementById("breadcrumb-atual");
+  if (bcAtual) bcAtual.textContent = pageId === "inicio" ? "Início" : item.label;
+}
+
+/* Troca instantânea (sem animação) — usada no primeiro load da
+   página e quando o toggle "Animações" está desligado. */
+function trocarSecaoInstantaneo(pageId) {
   document.querySelectorAll(".page-section").forEach((sec) => {
     sec.hidden = sec.dataset.page !== pageId;
   });
   atualizarNavAtiva(pageId);
-
-  const item = NAV_ITEMS.find((p) => p.id === pageId);
-  if (item) {
-    document.title = item.titulo;
-    const bcAtual = document.getElementById("breadcrumb-atual");
-    if (bcAtual) bcAtual.textContent = pageId === "inicio" ? "Início" : item.label;
-  }
+  atualizarCabecalho(pageId);
   window.scrollTo(0, 0);
+  paginaAtualId = pageId;
+}
+
+/* Troca animada: a seção atual esmaece e desliza um pouco pra cima
+   (saída), some, aí a nova seção aparece deslizando de baixo pra
+   cima (entrada). Tudo controlado por JS/CSS puro — não depende de
+   nenhuma API experimental do navegador, então funciona igual em
+   qualquer um. */
+function trocarSecaoAnimado(pageId) {
+  const atual = document.querySelector(`.page-section[data-page="${paginaAtualId}"]`);
+  const alvo = document.querySelector(`.page-section[data-page="${pageId}"]`);
+  if (!alvo || alvo === atual) return;
+
+  transicaoEmAndamento = true;
+  atualizarNavAtiva(pageId);
+
+  if (!atual) {
+    trocarSecaoInstantaneo(pageId);
+    transicaoEmAndamento = false;
+    return;
+  }
+
+  atual.classList.add("secao-saindo");
+
+  window.setTimeout(() => {
+    atual.hidden = true;
+    atual.classList.remove("secao-saindo");
+
+    alvo.hidden = false;
+    alvo.classList.add("secao-entrando");
+    atualizarCabecalho(pageId);
+    window.scrollTo(0, 0);
+    paginaAtualId = pageId;
+
+    // força o navegador a registrar o estado inicial antes de tirar
+    // a classe — senão a transição de entrada não dispara
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        alvo.classList.remove("secao-entrando");
+        transicaoEmAndamento = false;
+      });
+    });
+  }, 200);
 }
 
 function irParaPagina(pageIdBruto) {
   const pageId = paginaValida(pageIdBruto);
-  const trocar = () => trocarSecao(pageId);
+  if (pageId === paginaAtualId || transicaoEmAndamento) return;
 
-  if (document.startViewTransition && !document.documentElement.classList.contains("motion-off")) {
-    document.startViewTransition(trocar);
+  if (document.documentElement.classList.contains("motion-off")) {
+    trocarSecaoInstantaneo(pageId);
   } else {
-    trocar();
+    trocarSecaoAnimado(pageId);
   }
 }
 
 function initRoteador() {
+  // lê a hash só nessa primeira carga (compatibilidade com links
+  // antigos tipo index.html#atalhos) — depois disso o roteador
+  // nunca mais toca na URL, então navegar pelo site não deixa
+  // rastro nenhum no histórico do navegador.
   const inicial = paginaValida(location.hash.slice(1));
-  trocarSecao(inicial); // sem transição no primeiro load
-  window.addEventListener("hashchange", () => {
-    irParaPagina(location.hash.slice(1));
-  });
+  trocarSecaoInstantaneo(inicial);
 }

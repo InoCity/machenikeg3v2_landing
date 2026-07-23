@@ -12,9 +12,9 @@ function renderSidebar(activeId) {
 
   const items = NAV_ITEMS.map((item) => {
     const isActive = item.id === activeId;
-    return `<a class="nav-item${isActive ? " active" : ""}" href="#${item.id}" data-page="${item.id}">
+    return `<button type="button" class="nav-item${isActive ? " active" : ""}" data-page="${item.id}">
       <span class="micon" data-icon="${item.icon}"></span><span>${item.label}</span>
-    </a>`;
+    </button>`;
   }).join("");
 
   el.innerHTML = `
@@ -85,3 +85,13 @@ function initFundoOrganicoEntrada() {
   });
 }
 initFundoOrganicoEntrada();
+
+/* Clique em qualquer coisa com data-page (itens da sidebar/bottom-bar
+   e os cards da home) troca de seção via JS puro — sem tocar na URL,
+   sem criar entrada no histórico do navegador. */
+document.addEventListener("click", (e) => {
+  const alvo = e.target.closest("[data-page]");
+  if (!alvo) return;
+  e.preventDefault();
+  irParaPagina(alvo.dataset.page);
+});
